@@ -69,7 +69,7 @@ result = prompt(cat)
 category = result[0]
 text_file = category + to_label
 
-with open(folder + text_file) as f:
+with open(folder + '/' + text_file) as f:
     for line in f:
         name = line.split(' ')[0]
         right = False
@@ -80,7 +80,7 @@ with open(folder + text_file) as f:
                 res = prompt(questions2)
                 if res[5] == None:
                     res[5] = ''
-                desc = '{' + '\'image name\'' + ': ' + '\'' + name +'\'' + ', \'category\'' + ': ' + '\'' + category + '\'' + \
+                desc = '{' + '\'image name\'' + ': ' + '\'' + name +'\'' + ', \'category\'' + ': ' + '\'' + category + '\',' + \
                 '\'descriptions\'' + ': [' + '\'' + result[0] + '\', ' + '\'' + ", ".join(map(str,result[1])) + '\', ' + '\'' + result[2] + '\', ' \
                     + '\'' + res[0] + '\', ' + '\'' + res[1] + '\', ' + '\'' + res[2] + '\', ' + '\'' + ", ".join(map(str,res[3])) \
                         + '\', ' + '\'' + res[4] + ', ' +res[5] + '\', ' + '\'' + res[6] + '\''+ ']}, '
