@@ -5,7 +5,14 @@ from PIL import Image
 out_file = input("Destination file:")
 
 out = open(out_file, 'a')
-out.write('[')
+control = open(out_file, 'r')
+go = True
+for line in control:
+    go = False
+    break
+control.close()
+if go:
+    out.write('[')
 
 to_label = '_to_label.txt'
 folder = input("Source file:")
